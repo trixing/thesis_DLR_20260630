@@ -623,13 +623,13 @@ where the blade modal mass $m_b$ is assumed to be located at the application poi
         
         \subfloat[Wind speed $V_{\infty} = 4$\,m/s]{\includegraphics[width=0.75\textwidth]{Figures_ADi/BodeV4.eps}}\\
         \subfloat[Wind speed $V_{\infty} = 11$\,m/s]{\includegraphics[width=0.75\textwidth]{Figures_ADi/BodeV11.eps}}
-        \caption[Open-loop verification: Frequency response magnitude of linearized FAST and qLPV models for below rated wind speeds.]{Open-loop verification: Frequency response magnitude of linearized FAST and qLPV models for below rated wind speeds. Mdl1 (\mlBlackDashed), Mdl2 (\mlBlue), and FAST reference implementation (\mlOrange) at frequencies from 0.01\,Hz to 2\,Hz.} %
+        \caption[Open-loop verification: Frequency response magnitude of linearized FAST and qLPV models for below-rated wind speeds.]{Open-loop verification: Frequency response magnitudes of the linearized FAST and qLPV models for below-rated wind speeds. The 5th-order models Mdl1~(\mlBlackDashed, rotor and tower dynamics) and Mdl2~(\mlBlue, rotor, generator, tower, and blade dynamics), together with the 30th-order FAST reference implementation~(\mlOrange), are compared over the frequency range of 0.01,Hz to 2,Hz.} %
         \label{fig:Bode4}
     \end{figure}
     \begin{figure} [htp]\centering
         \subfloat[Wind speed $V_{\infty} = 12$\,m/s]{\includegraphics[width=0.75\textwidth]{Figures_ADi/BodeV12.eps}}\\ 
         \subfloat[Wind speed $V_{\infty} = 25$\,m/s]{\includegraphics[width=0.75\textwidth]{Figures_ADi/BodeV25.eps}}
-        \caption[Open-loop verification: Frequency response magnitude of linearized FAST and qLPV models for above rated wind speeds.]{Open-loop verification: Frequency response magnitude of linearized FAST and qLPV models for above rated wind speeds. Mdl1 (\mlBlackDashed), Mdl2 (\mlBlue), and FAST reference implementation (\mlOrange) at frequencies from 0.01\,Hz to 2\,Hz.} 
+        \caption[Open-loop verification: Frequency response magnitude of linearized FAST and qLPV models for above rated wind speeds.]{Open-loop verification: Frequency response magnitudes of the linearized FAST and qLPV models for above-rated wind speeds. The 5th-order models Mdl1~(\mlBlackDashed, rotor and tower dynamics) and Mdl2~(\mlBlue, rotor, generator, tower, and blade dynamics), together with the 30th-order FAST reference implementation~(\mlOrange), are compared over the frequency range of 0.01,Hz to 2,Hz.} 
         \label{fig:Bode12}
     \end{figure}
     
@@ -655,7 +655,7 @@ where the blade modal mass $m_b$ is assumed to be located at the application poi
         \caption[Closed-loop verification: FAST and qLPV models with PI baseline 
         controller, stepped wind sweep 4\,m/s to 25\,m/s.]%
         {Closed-loop verification: FAST and qLPV models simulated in closed loop with the PI baseline controller with a stepped wind sweep from 4\,m/s to 25\,m/s. 
-            Mdl1 (\mlBlackDashed), Mdl2 (\mlBlue), and FAST reference implementation (\mlOrange). Displayed signals: wind, control inputs, 
+            Mdl1~(\mlBlackDashed, rotor and tower dynamics),  Mdl2~(\mlBlue, rotor, generator, tower, and blade dynamics), and FAST reference~(\mlOrange). Displayed signals: wind, control inputs, 
             rotor speed, tower accelerations, and power.}
         \label{fig:TimeCmpMdlSweep}
     \end{figure}
@@ -669,8 +669,8 @@ where the blade modal mass $m_b$ is assumed to be located at the application poi
         \subfloat[Filter with $k_\tau = 0.75$ and  $k_T = 0.25$ ]
         {\includegraphics[width=0.485\textwidth]{figures/Figures_ADi/cmpTimeDomain_AllNTW18_kVe0dot25_kVeTau0dot75.eps}}
         \caption[Closed-loop model comparison: FAST and qLPV models with baseline 
-        PI controller, under turbulent wind with and without filter on freestream wind.]{Closed-loop model comparison: FAST and qLPV models with PI baseline controller, under turbulent wind, 18\,m/s mean, IEC turbulence 
-            class B (14\%), with and without filter on freestream wind. Mdl1 (\mlBlackDashed), Mdl2 (\mlBlue), and FAST reference implementation (\mlOrange). Displayed signals: wind, control inputs, rotor speed, tower 
+        PI controller, under turbulent wind with and without filter on freestream wind.]{Closed-loop model comparison: FAST and qLPV models with PI baseline controller, under turbulent wind (18\,m/s mean, turbulence 
+            class B), with and without filter on freestream wind. Mdl1 (\mlBlackDashed, rotor and tower dynamics),  Mdl2~(\mlBlue, rotor, generator, tower, and blade dynamics), and FAST reference~(\mlOrange). Displayed signals: wind, control inputs, rotor speed, tower 
             accelerations, and power.}
         \label{fig:TimeCmpMdlNTM}
     \end{figure}
