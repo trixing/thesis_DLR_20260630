@@ -710,7 +710,7 @@ Figure~\ref{fig:SingVal} depicts the maximum and minimum singular values of four
   %  \caption[Maximum and minimum singular values of the Koopman models at various sample steps $k$ during online identification]{Maximum and minimum singular values of the Koopman models at four sample steps $k$ during online identification. Shift from the initial model ($k = 240$, \mlGray), equal to the offline identified model at a wind speed of 7\,m/s, via the models at $k= 5100$ (\mlYellowDashDot) and $k = 6000$ (\mlPurpleDashed) to the final adapted model ($k= 8000$, \mlGreenDotted), as well as the reference offline identification model (\mlBlackDashed), identified at 9\,m/s.}
     
 
-    \caption[Maximum and minimum singular values of the Koopman models at various sample steps $k$ during online identification]{Maximum and minimum singular values of the Koopman models at four sample steps $k$ during online identification. Shift from the initial model ($k = 240$, \mlGray), the offline-identified model at 7\,m/s, through the intermediate models ($k = 5100$, \mlYellowDashDot; $k = 6000$, \mlPurpleDashed) to the final adapted model ($k = 8000$, \mlGreenDotted) is shown with the reference offline-identified model at 9\,m/s (\mlBlackDashed).}
+    \caption[Maximum and minimum singular values of the Koopman models at various sample steps $k$ during online identification]{Maximum and minimum singular values of the Koopman models at four sample steps $k$ during online identification. Shift from the initial model ($k = 240$, \mlGray, the offline-identified model at 7\,m/s), through the intermediate models ($k = 5100$, \mlYellowDashDot; $k = 6000$, \mlPurpleDashed) to the final adapted model ($k = 8000$, \mlGreenDotted) is shown with the reference offline-identified model at 9\,m/s (\mlBlackDashed).}
 
     \label{fig:SingVal}
 \end{figure}
@@ -735,13 +735,13 @@ Figure~\ref{fig:CL_Comparison} compares the performance of the non-adaptive (a) 
 \begin{figure}[htbp]
     \centering
     % Subfigure (a): No online update
-    \subfloat[Non-adaptive Koopman MPC] {\includegraphics[width=0.495\textwidth]{figures/figures_CDC22/Fig04_CL_Update0_tex.eps}}\hfill
-    \subfloat[Adaptive Koopman MPC with online updates]{\includegraphics[width=0.495\textwidth]{figures/figures_CDC22/Fig05_CL_Update1_tex.eps}}
-    \caption[Closed-loop tracking comparison during a wind speed ramp and power reference step.]{Closed-loop tracking comparison during a wind speed ramp and power reference step. Subplots (top to bottom): reference $P_{\text{ref}}$ (\mBlack) and farm power $P_{\text{WF}}$ (\mlPurpleDashed); wind speeds $V_\infty$ (\mBlack) and $V_1$ (\mlBlue); thrust $C_T^\prime$; real vs. estimated effective wind $V_{r1}$ (\mlDarkBlueDashed), $V_{r2}$ (\mlDarkRedDashed); and the update signal (\mBlack), which is zero in (a). The titles give TE, $1000\cdot$AA, and the estimated effective wind speeds' VAF values. WT1/WT2 signals are \mlBlue/\mlOrange.}
+    \subfloat[Non-adaptive AIC; TE~456.0\,kW, 1000$\cdot$AA~3.8, \;\; VAF~$V_{r1}\,/\,V_{r2}$: 0\,/\,93.7\%.] {\includegraphics[width=0.495\textwidth]{figures/figures_CDC22/Fig04_CL_Update0_tex.eps}}\hfill
+    \subfloat[Adaptive AIC with online updates; TE~17.2\,kW, 1000$\cdot$AA~7.6, VAF~$V_{r1}\,/\,V_{r2}$: 99.9\,/\,97.8\%.]{\includegraphics[width=0.495\textwidth]{figures/figures_CDC22/Fig05_CL_Update1_tex.eps}}
+    \caption[Controller comparison non-adaptive and adaptive Koopman MPC AIC during a wind speed ramp and power reference step.]{Controller comparison non-adaptive and adaptive Koopman MPC AIC during a wind speed ramp and power reference step; objective mean tracking error (TE) and actuator activity (AA). Subplots (top to bottom): reference $P_{\text{ref}}$ (\mBlack) and farm power $P_{\text{WF}}$ (\mlPurpleDashed); wind speeds $V_\infty$ (\mBlack) and $V_1$ (\mlBlue); thrust $C_T^\prime$; real vs. estimated effective wind $V_{r1}$ (\mlDarkBlueDashed), $V_{r2}$ (\mlDarkRedDashed); and the update signal (\mBlack), which is zero in (a). WT1/WT2 signals are \mlBlue/\mlOrange.}
     \label{fig:CL_Comparison}
 \end{figure}
 %
-The closed-loop performance is quantitatively evaluated using the Tracking Error (TE) and Actuator Activity (AA) criteria. While the VAF metric was previously used to validate the model's open-loop predictive accuracy, it is less suited for evaluating control success. In closed-loop operation, the primary objectives are to minimize the deviation from the power reference and reduce mechanical wear. Therefore, TE and AA are used as they directly correspond to the cost function terms minimized by the controller, as defined in Equation~\eqref{eq:NMPCcostAIC}. Specifically, the TE is the mean absolute difference between $P_{\text{ref}}$ and $P_{\text{WF}}$, and the AA is the sum of the mean absolute thrust increments $|\Delta C_{Ti}^\prime|$ of the two turbines. Both TE and AA values are evaluated from $k = 240$ onward, so that the start-up of the simulation is excluded. The weighting matrices $Q = 10^{-4}$ and $R = 10^{-6}$ used in the MPC cost function, the default values of WFSim, are used as in all WFSim simulations shown in this thesis.
+The closed-loop performance is quantitatively evaluated using the Tracking Error (TE) and Actuator Activity (AA) criteria. While the VAF value was previously used to validate the model's open-loop predictive accuracy, it is less suited for evaluating control success. In closed-loop operation, the primary objectives are to minimize the deviation from the power reference and reduce mechanical wear. Therefore, TE and AA are used as they directly correspond to the cost function terms minimized by the controller, as defined in Equation~\eqref{eq:NMPCcostAIC}. Specifically, the TE is the mean absolute difference between $P_{\text{ref}}$ and $P_{\text{WF}}$, and the AA is the sum of the mean absolute thrust increments $|\Delta C_{Ti}^\prime|$ of the two turbines. Both TE and AA values are evaluated from $k = 240$ onward, so that the start-up of the simulation is excluded. The weighting matrices $Q = 10^{-4}$ and $R = 10^{-6}$ used in the MPC cost function, the default values of WFSim, are used as in all WFSim simulations shown in this thesis.
 
 The top subplots in Figure~\ref{fig:CL_Comparison} illustrate the farm-level power yield $P_{\text{WF}}$ (purple) relative to the reference signal $P_{\text{ref}}$ (black). The subsequent subplots display the freestream wind speed $V_{\infty}$ alongside the local wind speed $V_1$ measured at turbine WT1, followed by the thrust control inputs $C_{T1}^\prime$ and $C_{T2}^\prime$. Consistent with the previous identification plots, signals for WT1 are shown in blue and WT2 in red. The fourth row compares the true effective wind speeds $V_{r1}$ and  $V_{r2}$ with their estimates, while the bottom row indicates the instances where the Koopman model was updated online, which occur only in Figure~\ref{fig:CL_Comparison}(b). As shown in the fourth subplot of Figure~\ref{fig:CL_Comparison}(a), the non-adaptive scheme significantly overestimates the effective wind speeds following the wind speed change: the estimate of $V_{r1}$ reaches the upper limit of 12\,m/s, and that of $V_{r2}$ is about 0.8\,m/s too high. This leads to insufficient thrust coefficients $C_{T1}^\prime$ and $C_{T2}^\prime$ of about 0.24, so that the farm power remains at about 1.73\,MW after the reference step to 2.58\,MW, resulting in a TE of 456.0\,kW. In contrast, the online-updated model in Figure~\ref{fig:CL_Comparison}(b) reduces the TE to 17.2\,kW, with VAF values of 99.9\% and 97.9\% for the estimated effective wind speeds. The model is updated 80 times: at the start of the simulation, during the wind speed change, and once after the reference step at $k = 2584$. The adaptive scheme successfully tracks the effective wind speed despite changes in both the disturbance signal ($V_{\infty}$) and the power reference ($P_{\text{ref}}$). 
 %
@@ -971,23 +971,25 @@ Open-loop simulations are used to create signals that can be used to identify th
 As in Section~\ref{sec:AdaptiveWindFarmqLMPCforAIC}, new datasets that differ from the one used for system identification in the original publication \cite{dittmer2023koopman} are designed: the identification dataset with $n_o = 29,999$ samples and the verification dataset with $n_o = 9,999$ samples comprise random combinations of levels of the two thrust control signals and the yaw angle, see Section~\ref{WakeModel}.
 
 Figure~\ref{fig:WRCAICOL_EDMD} shows the new identification dataset in panels~(a) and~(c) and the new verification dataset in panels~(b) and~(d). Estimates of the effective wind speeds are shown in panels~(a) and~(b), while estimates of the farm power are shown in panels~(c) and~(d).
+%
 \begin{figure}[htbp]
     \centering
-    \subfloat[Identification dataset with estimated $V_{r1}$ and $V_{r2}$.]{
+    \subfloat[Identification~dataset~with~estimate $V_{r1}$~and~$V_{r2}$;\; \;\; VAF~$V_{r1}/\,V_{r2}$:~$n_{\varphi}=21$: 96/\,92\%; $n_{\varphi}=6$: 0/0\%.]{
         \includegraphics[width=0.485\textwidth]{figures/figures_IFAC23/03aFig_WRC_Id_Vr.eps}
         %\label{fig:WFSimgamma0}
     }
     \hfill
-    \subfloat[Verification dataset with estimated $V_{r1}$ and $V_{r2}$.]{
+    \subfloat[Verification dataset with estimates $V_{r1}$ and $V_{r2}$;\; \;\; VAF~$V_{r1}/\,V_{r2}$:~$n_{\varphi}=21$: 93/\,85\%; $n_{\varphi}=6$: 90/18\%.]{
         \includegraphics[width=0.485\textwidth]{figures/figures_IFAC23/03aFig_WRC_Val_Vr.eps}
         % \label{fig:PowerPerYaw}
     }\\
-    \subfloat[Identification dataset with estimated $P_{\text{WF}}$.]{
+    \subfloat[Identification dataset with estimates $P_{\text{WF}}$;\; \;\;
+    VAF~$P_{\text{WF}}$:~$n_{\varphi}=21$: 87\%; $n_{\varphi}=6$: 0\%.]{
         \includegraphics[width=0.485\textwidth]{figures/figures_IFAC23/03aFig_WRC_Id_P.eps}
         %\label{fig:WFSimgamma0}
     }
     \hfill
-    \subfloat[Verification dataset with estimated $P_{\text{WF}}$.]{
+    \subfloat[Verification dataset with estimates $P_{\text{WF}}$;\; \;\; VAF~$P_{\text{WF}}$:~$n_{\varphi}=21$: 85\%; $n_{\varphi}=6$: 61\%.]{
         \includegraphics[width=0.485\textwidth]{figures/figures_IFAC23/03aFig_WRC_Val_P.eps}
         % \label{fig:PowerPerYaw}
     }
@@ -1027,24 +1029,24 @@ At farm level, the power increase due to WRC is 10\% in WFSim, compared to 6\% p
 Figure~\ref{fig:ClosedLoopComparison} compares the closed-loop performance of the baseline AIC controller with the two WRC-AIC designs from Section~\ref{qLMPCDesign}, which combine yaw and thrust control.
 \begin{figure}[!tbp]
     \centering
-    \subfloat[Baseline AIC ($n_u = 2$) with fixed yaw ($\gamma_1 = 0^\circ$).]{
+    \subfloat[Baseline AIC with fixed yaw ($\gamma_1 = 0^\circ$): TE 118.0\,kW, $1000\cdot$AA 6.2, VAF $P_{\text{WF}}$ 99.1\%.]{
         \includegraphics[width=0.48\textwidth]{figures/figures_IFAC23/04FigTimeSeries0_tex.eps}
         \label{fig:CLbaseline}
     }
     \hfill
-    \subfloat[AIC ($n_u=2$) with yaw set to the Gaussian-model optimum $\gamma_1^* = 18^\circ$ when $P_{\text{ref}} > P_{\text{greedy}}$.]{
+    \subfloat[AIC with yaw set to the Gaussian-model optimum $\gamma_1^* = 18^\circ$ when $P_{\text{ref}} > P_{\text{greedy}}$:TE 65.3\,kW, $1000\cdot$AA 16.9, VAF $P_{\text{WF}}$ 99.1\%.]{
         \includegraphics[width=0.48\textwidth]{figures/figures_IFAC23/05FigTimeSeriesQLMPC_tex.eps}
         \label{fig:CLMPC1}
     }
     
     \vspace{0.5cm}
     
-    \subfloat[WRC-AIC ($n_u=3$): thrust and yaw controls optimized simultaneously.]{
+    \subfloat[WRC-AIC, thrust and yaw controls optimized simultaneously: TE 27.8\,kW, $1000\cdot$AA 15.6, VAF $P_{\text{WF}}$ 99.9\%.]{
         \includegraphics[width=0.48\textwidth]{figures/figures_IFAC23/06FigTimeSeriesLinMPC_tex.eps}
         \label{fig:CLMPC2}
     }
     
-    \caption[Controller comparison of the baseline AIC and the two WRC-AIC algorithms]{Controller comparison of the baseline AIC and the two WRC-AIC algorithms. Subplots (top to bottom): reference $P_{\text{ref}}$ (\mBlack), farm power $P_{\text{WF}}$ (\mlPurpleDashDot), predicted farm power $P_{\text{WF,est}}$ (\mlPinkDotted), and greedy power $P_{\text{greedy}}$ (\mlGreenDashed); wind speeds $V_\infty$ (\mBlack) and $V_1$ (\mlBlue); thrust $C'_T$; yaw $\gamma$; and effective wind speeds $V_{r1}, V_{r2}$. WT1/WT2 signals are \mlBlue/\mlOrange.}
+    \caption[Controller comparison Koopman MPC: baseline AIC and the two WRC-AIC algorithms]{Controller comparison Koopman MPC: baseline AIC and the two WRC-AIC algorithms; objectives mean tracking error (TE) and actuator activity (AA). Subplots (top to bottom): reference $P_{\text{ref}}$ (\mBlack), farm power $P_{\text{WF}}$ (\mlPurpleDashDot), predicted farm power $P_{\text{WF,est}}$ (\mlPinkDotted), and greedy power $P_{\text{greedy}}$ (\mlGreenDashed); wind speeds $V_\infty$ (\mBlack) and $V_1$ (\mlBlue); thrust $C'_T$; yaw $\gamma$; and effective wind speeds $V_{r1}, V_{r2}$. WT1/WT2 signals are \mlBlue/\mlOrange.}
     \label{fig:ClosedLoopComparison}
 \end{figure}
 
