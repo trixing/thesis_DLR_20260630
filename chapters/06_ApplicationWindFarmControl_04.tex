@@ -664,7 +664,7 @@ At each sample time $k$, the controller requires a set of external signals and i
 \end{enumerate}
 
 \subsection{Results} \label{section:AICWindFarmControl}
-The qLMPC described in the previous section is applied to a wind farm of two turbines implemented in WFSim as discussed above. Open-loop simulations are run to obtain data with and without a change in wind speed. In closed-loop simulation, a non-adaptive version of the algorithm and the described adaptive version are compared.
+The qLMPC described in the previous section is applied to a wind farm of two turbines implemented in WFSim as discussed above. Open-loop simulations are run to obtain data with and without a change in wind speed. In closed-loop simulation, a non-adaptive version of the algorithm and the described adaptive version are compared. The code to produce the results shown here is available in the Git repository \cite{GitRepoCodeWF}. %\label{section:AICWindFarmControl}
 
 \subsubsection{Open-Loop Results}
 
@@ -963,8 +963,9 @@ Since $\bm{P}_{\text{WF}}$ is the direct output of the EIODMD model, $\tilde{\bm
 
 The next section presents simulation results obtained in WFSim both in open-loop and in closed-loop, using an AIC MPC as a baseline controller as well as the two WRC-AIC controller designs presented above.
 
+
 \subsection{Results} \label{SimResults}
-Open-loop simulations are used to create signals that can be used to identify the Koopman model $\hat{K}_2$. Furthermore, an additional open loop simulation is run to investigate the potential power increase from WRC and to confirm the consistency between the results from the 2D NSE and the Gaussian wake model. Subsequently, closed-loop simulations are performed to evaluate power reference tracking performance.
+Open-loop simulations are used to create signals for the identification of the Koopman model $\hat{K}_2$. Furthermore, an additional open-loop simulation is run to investigate the potential power increase from WRC and to confirm the consistency between the results from the 2D NSE and the Gaussian wake model. Subsequently, closed-loop simulations are performed to evaluate the power reference tracking performance. As for the adaptive AIC controller presented in Section~\ref{section:AICWindFarmControl}, the code to reproduce the results shown here is available in the Git repository~\cite{GitRepoCodeWF}. %\label{section:AICWindFarmControl}
 
 
 \subsubsection{Open-Loop Results}

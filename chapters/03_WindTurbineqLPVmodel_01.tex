@@ -616,7 +616,7 @@ where the blade modal mass $m_b$ is assumed to be located at the application poi
     
     %\newpage
     \subsection{Results}\label{subsec:ResultsqLPVModel}
-    This section presents the open-loop frequency domain and closed-loop time domain verification of the two qLPV models.
+    This section presents the open-loop frequency domain and closed-loop time domain verification of the two qLPV models. All wind fields and test cases are available in the Git repository~\cite{GitRepoCodeqLMPC}, which also includes the code to reproduce all qLPV models presented here. 
     \subsubsection*{Results Open-loop Frequency Domain Verification}
     Figures~\ref{fig:Bode4} and~\ref{fig:Bode12} depict the magnitude response of four linear models: two models at the boundary wind speeds of 4\,m/s and 25\,m/s, and two models near the rated wind speed of 11.4\,m/s (specifically at 11\,m/s and 12\,m/s). Corresponding linearized FAST models serve as the reference.
     \begin{figure} [htp]\centering
@@ -648,10 +648,11 @@ where the blade modal mass $m_b$ is assumed to be located at the application poi
     For the verification in closed loop, two representative wind scenarios are considered: a stepped wind speed sweep from 4\,m/s to 25\,m/s, and a turbulent wind input with a mean speed of 18\,m/s.
     %
     Figure~\ref{fig:TimeCmpMdlSweep}(a) shows the results for the stepped wind sweep across all three closed-loop models. The wind increases in steps of 1\,m/s every 100\,s. The first 60\,s of the simulation, which contain initialization artifacts, are omitted. As a result, 40\,s of excitation is shown for 4\,m/s, and 100\,s for all other wind speeds. Figure~\ref{fig:TimeCmpMdlSweep}(b) presents the signals between 600\,s and 1000\,s of simulation time, corresponding to wind speeds between 10\,m/s and 13\,m/s. As before, the signals of the 5th-order model are plotted in black (dashed), the 9th-order model in blue, and the FAST model in red.
+    %
     \begin{figure}[h]
         \centering
-        \subfloat[Stepped wind sweep from 4\,m/s to 25\,m/s]{\includegraphics[width=0.485\textwidth]{figures/Figures_ADi/cmpTimeDomain_AllStep.eps}}\hspace{0.01\textwidth}
-        \subfloat[Zoom on wind speed range 10\,m/s to 13\,m/s]{\includegraphics[width=0.485\textwidth]{figures/Figures_ADi/cmpTimeDomain_AllZoomStep.eps}}
+        \subfloat[Stepped wind sweep from 4\,m/s to 25\,m/s]{\includegraphics[width=0.485\textwidth, trim={0cm 0cm 0cm 1cm},clip]{figures/Figures_ADi/cmpTimeDomain_AllStep.eps}}\hspace{0.01\textwidth}
+        \subfloat[Zoom on wind speed range 10\,m/s to 13\,m/s]{\includegraphics[width=0.485\textwidth, trim={0cm 0cm 0cm 1cm},clip]{figures/Figures_ADi/cmpTimeDomain_AllZoomStep.eps}}
         \caption[Closed-loop verification: FAST and qLPV models with PI baseline 
         controller, stepped wind sweep 4\,m/s to 25\,m/s.]%
         {Closed-loop verification: FAST and qLPV models simulated in closed loop with the PI baseline controller with a stepped wind sweep from 4\,m/s to 25\,m/s. 
@@ -665,9 +666,9 @@ where the blade modal mass $m_b$ is assumed to be located at the application poi
     Figure~\ref{fig:TimeCmpMdlNTM} shows the second test case: a turbulent wind profile with a mean speed of 18\,m/s and IEC turbulence class~B. This test case reveals a limitation of the qLPV models, which represent wind as a scalar value acting uniformly on the rotor, rather than as a spatially distributed field.
     \begin{figure}[htbp]
         \centering
-        \subfloat[No filter]{\includegraphics[width=0.485\textwidth]{figures/Figures_ADi/cmpTimeDomain_AllNTW18.eps}}\hspace{0.01\textwidth}
+        \subfloat[No filter]{\includegraphics[width=0.485\textwidth, trim={0cm 0cm 0cm 1.cm},clip]{figures/Figures_ADi/cmpTimeDomain_AllNTW18.eps}}\hspace{0.01\textwidth}
         \subfloat[Filter with $k_\tau = 0.75$ and  $k_T = 0.25$ ]
-        {\includegraphics[width=0.485\textwidth]{figures/Figures_ADi/cmpTimeDomain_AllNTW18_kVe0dot25_kVeTau0dot75.eps}}
+        {\includegraphics[width=0.485\textwidth,trim={0cm 0cm 0cm 1.cm},clip]{figures/Figures_ADi/cmpTimeDomain_AllNTW18_kVe0dot25_kVeTau0dot75.eps}}
         \caption[Closed-loop model comparison: FAST and qLPV models with baseline 
         PI controller, under turbulent wind with and without filter on freestream wind.]{Closed-loop model comparison: FAST and qLPV models with PI baseline controller, under turbulent wind (18\,m/s mean, turbulence 
             class B), with and without filter on freestream wind. Mdl1 (\mlBlackDashed, rotor and tower dynamics),  Mdl2~(\mlBlue, rotor, generator, tower, and blade dynamics), and FAST reference~(\mlOrange). Displayed signals: wind, control inputs, rotor speed, tower 
