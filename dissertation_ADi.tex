@@ -1,5 +1,5 @@
 %\documentclass[]{report}
-\documentclass[12pt,a4paper,twoside]{report}
+\documentclass[12pt,a4paper,twoside,openright]{report}
 \usepackage[a4paper,top=2.2cm,bottom=2.5cm,left=2.3cm,right=2.3cm,includeheadfoot]{geometry}
 \usepackage{longtable} 
 \usepackage{booktabs}
@@ -162,6 +162,7 @@
 
 
 \usepackage{fancyhdr}
+\usepackage{emptypage}
 \pagestyle{fancy}
 \fancyhf{} % clear defaults
 \allowdisplaybreaks
@@ -365,7 +366,6 @@ Für die Windparkregelung werden die Nachlaufwechselwirkungen zwischen den Anlag
 %\listoftables
 \endgroup
 \makeatother
-
 
     \include{chapters/00_Abbreviations}
     \include{chapters/01_Introduction_CapitalLetters}

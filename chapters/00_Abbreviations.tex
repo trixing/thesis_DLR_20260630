@@ -19,7 +19,7 @@
     $\bm{A}$ & System matrix & [...] \\
     $a$ & Axial induction factor & -- \\
     $a^{\prime}$ & Angular induction factor & -- \\
-    $B$ & Damping factor & -- \\
+    $B$ & Damping factor & [...] \\
     $\bm{B}$ & Input matrix & [...] \\
     $b$ & Wake expansion coefficient & -- \\
     $C$ & Optimization criterion & -- \\
@@ -35,15 +35,15 @@
     %$d$ & Damping & $\mathrm{Ns/m}$ \\
     % $d$ & Dimension & -- \\
     $\bm{d}$ & Disturbance input vector & --  \\
-    $E_d$ & Dissipative energy & --\\
-    $E_k$ & Kinetic energy & --\\
-    $E_p$ & Potential energy & --\\
+    $E_d$ & Dissipation function & $\mathrm{W}$\\
+    $E_k$ & Kinetic energy & $\mathrm{J}$\\
+    $E_p$ & Potential energy & $\mathrm{J}$\\
     $F_{T,r}$ & Rotor thrust & $\mathrm{N}$ \\
     $f$ & Frequency & $\mathrm{Hz}$ \\
     %$f_0$ & Frequency & $\mathrm{Hz}$ \\
     %$G$ & Machine constant for controlling generator torque & $\mathrm{Nm}/(\mathrm{rad/s})^2$ \\
     $G$ & Transfer function & [...] \\
-    $H_t$ & Tower height & $\mathrm{m}$ \\
+    $H_t$ & Hub height & $\mathrm{m}$ \\
     % $h$ & Profile depth & $\mathrm{m}$ \\
     $\bm{I}_\mathrm{d}$ & Identity matrix of dimension $\mathrm{d}\times {\mathrm{d}}$& -- \\
     $I_\mathrm{V}$ & Turbulence intensity & -- \\
@@ -54,7 +54,7 @@
     $\mathbf{K}$ & Stiffness matrix & [...] \\
     % $k$ & Number of amplitudes in a load collective & -- \\
     $k_{\text{WB}}$ & Shape factor of the Weibull distribution & -- \\
-    $L$ & Endurance load cycle count & -- \\
+    $L$ & Number of load cycles to failure & -- \\
     $l$ & Load cycle count & -- \\
     % $M$ & Moment & $\mathrm{Nm}$ \\
     $\mathbf{M}$ & Mass matrix & [...] \\  %\(\mathbf{M}_5\)
@@ -64,27 +64,27 @@
     % $n_\mathrm{C}$ & Number of optimization criteria & -- \\
     % $n_\mathrm{X}$ & Number of optimization parameters & -- \\
     $P$ & Power & $\mathrm{W}$ \\
-    $p$ & pressure &  $\mathrm{N/m}^2$ \\
+    $p$ & Pressure &  $\mathrm{N/m}^2$ \\
     % $Q$ & Weighted probability & -- \\
     $\mathbf{Q}$  & Force vector & [...] \\
     $R_r$ & Rotor radius & $\mathrm{m}$ \\
     $\mathbb{R}$ & Set of real numbers & -- \\
     $r$ & Radial position on blade & $\mathrm{m}$ \\
     %$r$ & Probability density function & -- \\
-    $S$ & Damage & -- \\
+    $S$ & Moment range of a load cycle & $\mathrm{Nm}$ \\
     $s$ & Laplace variable & $\mathrm{rad/s}$ \\
     $T$ & Interval or period duration & $\mathrm{s}$ \\
     $T_r$ & Rotor torque & $\mathrm{Nm}$ \\
     $t$ & Time & $\mathrm{s}$ \\
-    $t$ & Wall thickness & $\mathrm{m}$ \\
-    $u$ & Velocity in x-direction & $\mathrm{m/s}$ \\
+    % unused: $t$ & Wall thickness & $\mathrm{m}$ \\
+    % unused: $u$ & Velocity in x-direction & $\mathrm{m/s}$ \\
     $\bm{u}$ & Control input vector & [...] \\
     $V$ & Absolute wind speed with $V = \sqrt{v_x^2 + v_y^2 + v_z^2}$& $\mathrm{m/s}$ \\
     $V_{\text{inflow}}$ & Inflowing wind speed at blade section &  $\mathrm{m/s}$\\
     %$v$ & Velocity in y-direction & $\mathrm{m/s}$ \\
     $\bm{v}$ & Wind speed vector with $\bm{v} = [v_x\ v_y\ v_z]^T$ & $\mathrm{m/s}$ \\
-    $W$ & Moment resistance & $\mathrm{m}^3$ \\
-    $\bm{w}$ & Input vector $\bm{w}=[\bm{u}\ \bm{d}]^T$  & $\mathrm{m/s}$ \\
+    % unused: $W$ & Moment resistance & $\mathrm{m}^3$ \\
+    $\bm{w}$ & Input vector $\bm{w}=[\bm{u}\ \bm{d}]^T$  & [...] \\
     %$w$ & Velocity in z-direction & $\mathrm{m/s}$ \\
     %$X$ & Optimization parameter (generic) & [...] \\
     $x$ & Longitudinal coordinate & $\mathrm{m}$ \\
@@ -93,7 +93,7 @@
     $\bm{x}$ & State vector & [...] \\
     $y$ & Lateral coordinate & $\mathrm{m}$ \\
     $\bm{y}$ & Output vector & [...] \\
-    $Z$ & Adjustment factor for global criteria & -- \\
+    % unused: $Z$ & Adjustment factor for global criteria & -- \\
     $z$ & Vertical coordinate (height above ground) & $\mathrm{m}$ \\
     
 \end{longtable}
@@ -115,7 +115,7 @@
     \endlastfoot
     \hspace{1.7cm} & \hspace{8.8cm} & \hspace{2.4cm} \kill
     $\alpha$ & Angle of attack & $\mathrm{rad}$ \\
-    $\alpha_{\text{shear}}$ & Wind shear exponent of exponential power law & -- \\
+    $\alpha_{\text{shear}}$ & Wind shear exponent of the power law & -- \\
     $\beta$ & Blade pitch angle & $\mathrm{rad}$ \\
     $\beta_0$ & Collective blade pitch angle & $\mathrm{rad}$ \\
     $\beta_i$ & Individual blade pitch angle of the $i^{\text{th}}$ blade & $\mathrm{rad}$ \\
@@ -125,15 +125,16 @@
     $\delta$ & Wake deflection centerline &  $\mathrm{m}$ \\
     $\delta_b$ & Blade angular out-of-plane deflection &  $\mathrm{rad}$ \\
     % $\delta_i$ & Wake deflection centerline of the $i^{\text{th}}$ turbine in a wind farm &  $\mathrm{rad}$ \\
-    $\zeta$ & Filter damping & -- \\
+    $\zeta$ & Damping ratio & -- \\
     $\eta$ & Efficiency & -- \\
     $\theta$ & Angle & $\mathrm{rad}$ \\
-    $\kappa$ & Gain scheduling factor & -- \\
-    $\lambda$ & Tip speed ratio & -- \\
-    $\nu$ & Kinematic viscosity & $\mathrm{m}^2/\mathrm{s}$ \\
+    $\kappa$ & Time constant of the generator torque actuator & $\mathrm{s}$ \\
+    $\lambda$ & Tip-speed ratio & -- \\
+    $\nu$ & Trigger threshold of the online model update & $\mathrm{m/s}$\\
     $\rho_a$ & Air density & $\mathrm{kg/m}^3$ \\
     $\bm{\rho}_P$ & Scheduling parameter vector & [...] \\
     $\sigma$ & Stress & $\mathrm{N/m}^2$ \\
+    $\tau$ & Time constant of the pitch actuator & $\mathrm{s}$ \\
     %$\phi$ & Phase shift & $^\circ$ \\
     $\varphi$ & Koopman observable &  [...] \\
     $\omega$ & Angular velocity, angular frequency & $\mathrm{rad/s}$ \\
@@ -166,9 +167,9 @@
     {$(\cdot)_\text{D}$} & {Differential gain}\\ % {Distributed; fatigue strength}
     {$(\cdot)_d$} & {Related to a discrete system}\\
     {$(\cdot)_g$} & {Generator related, high-speed shaft side}\\
-    {$(\cdot)_{gr}$} & {Rotor related, high-speed shaft side}\\
+    {$(\cdot)_{gr}$} & {Generator related, low-speed shaft side}\\
     {$(\cdot)_\text{I}$} & {Integral gain}\\
-    {$(\cdot)_\text{invN}$} & {Inverse notch filter}\\
+    {$(\cdot)_\text{iNF}$} & {Inverse notch filter}\\
     {$(\cdot)_L$} & {Lift}\\
     %{$(\cdot)_m$} & {Mean value}\\
     % {$(\cdot)_\text{max}$} & {Maximum value}\\
@@ -181,8 +182,10 @@
     {$(\cdot)_s$} & {Drivetrain transmission related}\\
     {$(\cdot)_T$} & {Thrust}\\
     {$(\cdot)_t$} & {Tower related}\\
-    {$(\cdot)_{\text{TC}i}$} & {Related to the $i$th test case}\\
+    % unused: {$(\cdot)_{\text{TC}i}$} & {Related to the $i$th test case}\\
     {$(\cdot)_V$} & {Speed related}\\
+    {$(\cdot)_\text{WF}$} & {Wind farm related}\\
+    {$(\cdot)_\text{WT}$} & {Wind turbine related}\\
     {$(\cdot)_\infty$} & {Condition far ahead of the system}\\
     {$(\cdot)_{\text{-}\infty}$} & {Condition far behind the system}\\
     {$(\cdot)^*$} & {Optimal value}\\
@@ -232,20 +235,23 @@
     \endlastfoot
     \hspace{1.7cm} & \hspace{11.6cm} \kill
     {1P} & {One-per-revolution frequency}\\
-    {2D}  & {Two dimensional}\\
+    {2D}  & {Two-dimensional}\\
     {2P} & {Two-per-revolution frequency}\\
-    {3D}  & {Three dimensional}\\
+    {3D}  & {Three-dimensional}\\
     %{3D}  & {Threerotor diameters downstream}\\
     {5$D$}  & {Five rotor diameters downstream}\\
+    {AA} & {Actuator Activity}\\
     {AALC} & {Active Aerodynamic Load Control}\\
     {AEP} & {Annual Energy Production}\\
     {AIC} & {Axial Induction Control}\\
     {BEM} & {Blade Element Momentum}\\
-    {BEMT} & {Blade Element Momentum Theory}\\
+    % unused: {BEMT} & {Blade Element Momentum Theory}\\
     {CFD} & {Computational Fluid Dynamics}\\
     {CPC} & {Collective Pitch Control} \\
+    {CPU} & {Central Processing Unit} \\
     {DEL} & {Damage Equivalent Load} \\
-    {DIC} & {Dynamic Induction Control} \\
+    % unused: {DIC} & {Dynamic Induction Control} \\
+    {DLC} & {Design Load Case} \\
     {DLR} & {German Aerospace Center} \\
     {DMD} & {Dynamic Mode Decomposition} \\
     % {DOF} & {Degree Of Freedom} \\
@@ -261,43 +267,51 @@
     {GFRP} & {Glass Fiber Reinforced Polymer} \\
     %{hss} & {high speed shaft} \\
     {IEC} & {International Electrotechnical Commission} \\
-    {IFC} & {Individual Flap Control (used as subscript for the TEF controller gain)}\\
+    % unused: {IFC} & {Individual Flap Control (used as subscript for the TEF controller gain)}\\
     {IPC} & {Individual Pitch Control} \\
+    {ISA} & {International Standard Atmosphere} \\
     {LCoE} & {Levelized Cost of Energy} \\
     {LES} & {Large Eddy Simulation} \\
     {lidar} & {Light Detection and Ranging}\\
+    {LMI} & {Linear Matrix Inequality} \\
     {LPV} & {Linear Parameter-Varying} \\
-    {LQG} & {Linear Quadratic Gaussian (Regulator)}\\
+    {LQG} & {Linear Quadratic Gaussian}\\
     {LQR} & {Linear Quadratic Regulator}\\
     %{lss} & {low speed shaft} \\
-    {LTI} & {Linear Time Invariant} \\
-    {MBC} & {Multiblade Coordinate}\\
+    {LTI} & {Linear Time-Invariant} \\
+    {MBC} & {Multiblade Coordinate Transformation}\\
     {MIMO} & {Multiple-Input Multiple-Output} \\
     %{MOPS} & {Multi-Objective Parameter Synthesis} \\
     {MPC} & {Model Predictive Control} \\
     {NMPC} & {Nonlinear Model Predictive Control} \\
-    {NN} & {Neural Network} \\
+    % unused: {NN} & {Neural Network} \\
     {NREL} & {National Renewable Energy Laboratory} \\
-    {NSE} & {Navier-Stokes Equation}\\
+    {NSE} & {Navier-Stokes Equations}\\
+    {ODE} & {Ordinary Differential Equation}\\
+    {OoP} & {Out-of-Plane}\\
+    {PDE} & {Partial Differential Equation}\\
     {PI}  & {Proportional-Integral (controller)}\\
     {PID}  & {Proportional-Integral-Derivative (controller)}\\
     {PSD}  & {Power Spectral Density}\\
     {qLMPC}  & {Quasi-Linear (Parameter-Varying) Model Predictive Control}\\
     {qLPV}  & {Quasi-Linear Parameter-Varying}\\
     {QP}  & {Quadratic Programming}\\
-    {RMS} & {Root Mean Square}\\
+    % unused: {RMS} & {Root Mean Square}\\
     {SISO} & {Single-Input Single-Output} \\
+    {TE} & {Tracking Error} \\
     %{sw} & {side-to-side} \\
     %{TD} & {Tower Damping} \\
     {TEF} & {Trailing Edge Flap} \\
     {TEFC} & {Trailing Edge Flap Control}\\
     %{TRL} & {Technology Readiness Level} \\
     {TU Delft} & {Delft University of Technology} \\
-    {TUHH} & {Hamburg University of Technology} \\
+    % {TUHH} & {Hamburg University of Technology} \\
     {VAF} & {Variance Accounted For}\\
     %{VP} & {Variable-Pitch} \\
     %{VS} & {Variable-Speed} \\
     {WECS} & {Wind Energy Conversion System} \\
     {WFSim} & {Wind Farm Simulator} \\
     {WRC} & {Wake Redirection Control} \\
+    {WRC-AIC} & {Combined Wake Redirection and Axial Induction Control} \\
+    {WT1, WT2} & {Upstream and downstream wind turbine} \\
 \end{longtable}
